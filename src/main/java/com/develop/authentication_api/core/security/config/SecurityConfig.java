@@ -43,7 +43,8 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable) // (csrf) -> csrf.disable()
                 .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests((authz) -> authz
-                        .requestMatchers(HttpMethod.POST, "/account", "/account/add-role", "/auth/refresh", "/role").permitAll()
+                        .requestMatchers("/unsafe/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/account", "/account/add-role", "/role").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(new CustomAuthorizationFilter(customUserDetailsService, tokenStore, jwtUtils), UsernamePasswordAuthenticationFilter.class)

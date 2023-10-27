@@ -65,8 +65,4 @@ public class AccountService {
             throw new ResponseStatusException(HttpStatus.CONFLICT, MessageFormat.format("Username {0} already registered", username));
         }
     }
-
-    private void existsRole() {
-
-    }
 }

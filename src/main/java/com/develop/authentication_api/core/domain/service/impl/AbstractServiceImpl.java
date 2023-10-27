@@ -46,7 +46,7 @@ public class AbstractServiceImpl<T extends AbstractEntity> implements AbstractSe
 
     @Override
     public T updateStatus(Long id) {
-        T entity = repository.getById(id);
+        T entity = repository.getReferenceById(id);
         entity.updateStatus();
         return repository.save(entity);
     }
