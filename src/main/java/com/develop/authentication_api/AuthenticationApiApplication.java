@@ -17,5 +17,4 @@ public class AuthenticationApiApplication {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 }
